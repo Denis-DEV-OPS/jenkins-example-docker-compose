@@ -14,13 +14,13 @@ pipeline {
     }
     stage('Prune Docker data') {
       steps {
-        sh 'docker system prune --volumes -f'
+        sh 'sudo docker system prune --volumes -f'
       }
     }
     stage('Start container') {
       steps {
-        sh 'docker compose up -d --no-color --wait'
-        sh 'docker compose ps'
+        sh 'sudo docker compose up -d --no-color --wait'
+        sh 'sudo docker compose ps'
       }
     }
     stage('Run tests against the container') {
