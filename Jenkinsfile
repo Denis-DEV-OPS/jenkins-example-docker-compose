@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Prune Docker data') {
       steps {
-        sh 'sudo docker system prune --volumes -f'
+        sh 'docker system prune --volumes -f'
       }
     }
     stage('Start container') {
