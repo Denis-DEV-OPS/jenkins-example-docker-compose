@@ -18,8 +18,8 @@ pipeline {
     }
     stage('Start container') {
       steps {
-        sh 'sudo docker-compose up -d'
-        sh 'sudo docker-compose ps'
+        sh 'docker-compose up -d'
+        sh 'docker-compose ps'
       }
     }
     stage('Run tests against the container') {
@@ -30,8 +30,8 @@ pipeline {
   }
   post {
     always {
-      sh 'sudo docker-compose down --remove-orphans -v'
-      sh 'sudo docker-compose ps'
+      sh 'docker-compose down --remove-orphans -v'
+      sh 'docker-compose ps'
     }
   }
 }
